@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.login = void 0;
+exports.createTestUser = exports.login = void 0;
 const user_model_1 = __importDefault(require("../models/user.model"));
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const jwt_1 = require("../utils/jwt");
@@ -20,7 +20,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { username, password } = req.body;
     const user = yield user_model_1.default.findOne({ username });
     if (!user) {
-        res.status(404).json({ message: "User not found" });
+        res.status(500).json({ message: "User not found" });
         return;
     }
     const isMatch = yield bcryptjs_1.default.compare(password, user.password);
@@ -41,3 +41,22 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     });
 });
 exports.login = login;
+const createTestUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { username, password, role, department } = req.body;
+    const existing = yield user_model_1.default.findOne({ username });
+    if (existing) {
+        res.status(409).json({ message: "User already exists" });
+        return;
+    }
+    const hashedPassword = yield bcryptjs_1.default.hash(password, 10);
+    const user = new user_model_1.default({
+        username,
+        password: hashedPassword,
+        role,
+        department,
+        // 👇 Do NOT manually pass permissions – let pre("save") handle it
+    });
+    yield user.save(); // ✅ ensures pre("save") runs
+    res.status(201).json({ message: "Test user created", user });
+});
+exports.createTestUser = createTestUser;
