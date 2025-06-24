@@ -4,9 +4,10 @@ import { authorizeRole, checkPermission } from "../middlewares/auth.middleware";
 import { authenticateJWT } from "../middlewares/authenticateJWT";
 const router = Router();
 
-router.get("/admin-panel", authorizeRole("Admin"), (req, res) => {
+router.get("/admin-panel", authenticateJWT, authorizeRole("Admin"), (req, res) => {
   res.json({ message: "Welcome Admin" });
 });
+
 
 router.get(
   "/admin-data",

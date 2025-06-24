@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { UserPayload } from "../types";
+import { UserPayload } from "../types/";
 
 // 🟢 No explicit return type needed for the outer function
 export const authorizeRole = (...allowedRoles: string[]) => {

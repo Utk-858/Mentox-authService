@@ -20,10 +20,8 @@ const checkPermission = (...requiredPermissions) => {
             res.status(403).json({ message: "Access denied: No permissions" });
             return;
         }
-        console.log("User Permissions:", user.permissions);
-        console.log("Required Permissions:", requiredPermissions);
-        const hasAnyPermission = requiredPermissions.some(p => user.permissions.includes(p));
-        if (!hasAnyPermission) {
+        const hasPermission = requiredPermissions.every(p => user.permissions.includes(p));
+        if (!hasPermission) {
             res.status(403).json({ message: "Access denied: Missing permissions" });
             return;
         }

@@ -6,14 +6,13 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist", // Output directory for compiled JS
-    "rootDir": "./src",  // Root directory for TypeScript source files
-    "typeRoots": ["./node_modules/@types", "./types"]
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "typeRoots": ["./src/types", "./node_modules/@types"]
   },
   "include": [
-    "src/**/*.ts" // Include all .ts files in the src directory
+    "src/**/*.ts",
+    "src/types/**/*.d.ts"
   ],
-  "exclude": [
-    "node_modules" // Exclude node_modules
-  ]
+  "exclude": ["node_modules"]
 }
