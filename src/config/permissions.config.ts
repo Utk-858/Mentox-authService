@@ -31,4 +31,9 @@ export const Permissions = {
   // General Admin
   ACCESS_DASHBOARD: "access_dashboard",
   SYSTEM_SETTINGS: "system_settings",
+
+  //Courses
+  CREATE_COURSE: "create_course",
+  EDIT_COURSE: "edit_course",
+  DELETE_COURSE: "delete_course",
 };

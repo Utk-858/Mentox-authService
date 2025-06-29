@@ -38,6 +38,9 @@ export const RolePermissionsMap: Record<string, string[]> = {
     Permissions.MANAGE_ATTENDANCE,
     Permissions.VIEW_RESULTS,
     Permissions.VIEW_TIMETABLE,
+    Permissions.CREATE_COURSE,
+    Permissions.EDIT_COURSE,
+    Permissions.DELETE_COURSE,
   ],
 
   Student: [
