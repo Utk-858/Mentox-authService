@@ -40,5 +40,5 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     maxAge: 7 * 24 * 60 * 60 * 1000,
   });
 
-  res.status(200).json({ accessToken, user: userPayload });
+res.status(200).json({ token: accessToken, user: userPayload });
 };
