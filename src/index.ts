@@ -10,7 +10,7 @@ import cookieParser from "cookie-parser";
 import { loggerMiddleware } from "./middlewares/logger";
 
 const app = express();
-
+app.set('trust proxy', true);
 const allowedOrigins = [
   "https://mentox-erp-frontend-utk-858-utk-858s-projects.vercel.app",
   'https://mentox-api-gateway.onrender.com'
@@ -22,6 +22,7 @@ app.use(
     credentials: true, // allow cookies if needed
   })
 );
+
 
 app.use(express.json());
 app.use(cookieParser());
