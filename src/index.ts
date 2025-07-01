@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-
+import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth.routes";
@@ -10,6 +10,19 @@ import cookieParser from "cookie-parser";
 import { loggerMiddleware } from "./middlewares/logger";
 
 const app = express();
+
+const allowedOrigins = [
+  "https://mentox-erp-frontend-utk-858-utk-858s-projects.vercel.app",
+  'https://mentox-api-gateway.onrender.com'
+  
+];
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true, // allow cookies if needed
+  })
+);
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(loggerMiddleware);
