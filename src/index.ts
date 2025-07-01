@@ -7,10 +7,12 @@ import authRoutes from "./routes/auth.routes";
 import facultyRoutes from "./routes/faculty.routes";
 import adminRoutes from "./routes/admin.routes";
 import cookieParser from "cookie-parser";
+import { loggerMiddleware } from "./middlewares/logger";
 
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.use(loggerMiddleware);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/faculty", facultyRoutes);
