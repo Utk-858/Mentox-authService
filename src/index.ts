@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(loggerMiddleware);
 
-// app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 app.use("/api/faculty", facultyRoutes);
 app.use("/api/admin", adminRoutes);
 
@@ -43,9 +43,4 @@ mongoose.connect(process.env.MONGO_URI!).then(() => {
 
 app.get("/", (req, res) => {
   res.send("Mentox Auth Service!");
-});
-
-app.post("/api/auth/login", (req, res) => {
-  console.log("Login endpoint hit");
-  res.send("Login endpoint hit");
 });
