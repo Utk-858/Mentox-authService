@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(loggerMiddleware);
 
-app.use("/", authRoutes);
+app.use("/api/auth", authRoutes);
 app.use("/api/faculty", facultyRoutes);
 app.use("/api/admin", adminRoutes);
 
