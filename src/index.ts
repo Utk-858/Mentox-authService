@@ -13,8 +13,8 @@ const app = express();
 app.set('trust proxy', true);
 const allowedOrigins = [
   "https://mentox-erp-frontend-utk-858-utk-858s-projects.vercel.app",
-  'https://mentox-api-gateway.onrender.com'
-  
+  'https://mentox-api-gateway.onrender.com',
+  "http://localhost:8080", //local of gateway
 ];
 app.use(
   cors({
