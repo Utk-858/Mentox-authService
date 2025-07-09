@@ -12,7 +12,7 @@ if (!JWT_SECRET) {
 
 // 🔧 Payload structure to keep consistent
 const createPayload = (user: UserPayload) => ({
-  sub: user._id,
+  _id: user._id,
   username: user.username,
   role: user.role,
   department: user.department,
