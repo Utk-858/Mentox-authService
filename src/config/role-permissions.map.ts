@@ -25,6 +25,7 @@ export const RolePermissionsMap: Record<string, string[]> = {
     Permissions.MANAGE_ROLES,
     Permissions.ACCESS_DASHBOARD,
     Permissions.SYSTEM_SETTINGS,
+    Permissions.MANAGE_REGISTRATION
   ],
 
   HOD: [
@@ -54,4 +55,7 @@ export const RolePermissionsMap: Record<string, string[]> = {
     Permissions.RETURN_BOOK,
     Permissions.MANAGE_LIBRARY,
   ],
+  Parents:[
+    Permissions.FILL_STUDENT_APPLICATION,
+  ]
 };

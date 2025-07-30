@@ -36,4 +36,8 @@ export const Permissions = {
   CREATE_COURSE: "create_course",
   EDIT_COURSE: "edit_course",
   DELETE_COURSE: "delete_course",
+
+  //Student Registration
+  MANAGE_REGISTRATION:"manage_registration",
+  FILL_STUDENT_APPLICATION:"fill_student_application",
 };

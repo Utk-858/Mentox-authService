@@ -7,7 +7,7 @@ import { UserPayload } from "../../types";
 
 export const login = async (req: Request, res: Response): Promise<void> => {
   const { username, password } = req.body;
-
+  console.log("login called")
   const user = await User.findOne({ username });
   if (!user) {
     res.status(500).json({ message: "User not found" });
